@@ -1,6 +1,6 @@
 # Visual Studio
 .vs/
-Desktop/**/.vs/
+desktop/**/.vs/
 *.vspscc
 *.vssscc
 *.user
@@ -10,6 +10,8 @@ Desktop/**/.vs/
 _ReSharper.Cache/
 *.csproj.user
 *.vcxproj.user
+desktop/desktop/desktop.csproj
+desktop/**/.scproj
 
 # Build results
 desktop/**/bin/
@@ -23,6 +25,7 @@ desktop/**/*.userosscache
 desktop/**/*.suo
 desktop/**/.vs/
 desktop/**/appsettings.Development.json
+desktop/**/*.csproj
 
 # Build results of Visual Studio
 desktop/**/Generated_Code/

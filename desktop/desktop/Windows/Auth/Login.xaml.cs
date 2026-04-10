@@ -136,7 +136,7 @@ namespace desktop.Windows.Auth
                                     MessageBoxButton.OK, 
                                     MessageBoxImage.Information);
 
-                    new MainWindow().Show();    
+                    new AdminDashboard().Show();    
 
                     Close();
                 }

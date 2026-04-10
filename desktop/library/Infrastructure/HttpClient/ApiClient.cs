@@ -41,15 +41,15 @@ namespace library.Infrastructure.HttpClient
             }
         }
 
-        public async Task<TResponse> GetAsync<TResponse>(string endpoint, 
+        public async Task<TResponse> GetAsync<TResponse>(string endpoint,
                                                          CancellationToken cancellationToken = default)
         {
             var response = await _httpClient.GetAsync(endpoint, cancellationToken);
             return await HandleResponse<TResponse>(response, cancellationToken);
         }
 
-        public async Task<TResponse> PostAsync<TRequest, TResponse>(string endpoint, 
-                                               TRequest data, 
+        public async Task<TResponse> PostAsync<TRequest, TResponse>(string endpoint,
+                                               TRequest data,
                                                CancellationToken cancellationToken = default)
         {
             var json = JsonSerializer.Serialize(data, _jsonOptions);
@@ -58,8 +58,13 @@ namespace library.Infrastructure.HttpClient
             return await HandleResponse<TResponse>(response, cancellationToken);
         }
 
+        public async Task<HttpResponseMessage> PostMultipartAsync(string endpoint,
+                                                                  MultipartFormDataContent content,
+                                                                  CancellationToken cancellationToken = default)
+             => await _httpClient.PostAsync(endpoint, content, cancellationToken);
+
         public async Task<TResponse> PutAsync<TRequest, TResponse>(string endpoint,
-                                                                   TRequest data, 
+                                                                   TRequest data,
                                                                    CancellationToken cancellationToken = default)
         {
             var json = JsonSerializer.Serialize(data, _jsonOptions);
@@ -68,7 +73,7 @@ namespace library.Infrastructure.HttpClient
             return await HandleResponse<TResponse>(response, cancellationToken);
         }
 
-        public async Task<TResponse> DeleteAsync<TResponse>(string endpoint, 
+        public async Task<TResponse> DeleteAsync<TResponse>(string endpoint,
                                                             CancellationToken cancellationToken = default)
         {
             var response = await _httpClient.DeleteAsync(endpoint, cancellationToken);
@@ -81,7 +86,7 @@ namespace library.Infrastructure.HttpClient
             return response.IsSuccessStatusCode;
         }
 
-        private async Task<TResponse> HandleResponse<TResponse>(HttpResponseMessage response, 
+        private async Task<TResponse> HandleResponse<TResponse>(HttpResponseMessage response,
                                                                 CancellationToken cancellationToken)
         {
             var content = await response.Content.ReadAsStringAsync(cancellationToken);

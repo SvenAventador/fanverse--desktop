@@ -11,5 +11,12 @@
             public const string Check = $"{BaseUrl}/auth/check";
         }
 
+        public static class Admin
+        {
+            public const string GetMe = $"{BaseUrl}/admin/me";
+            public const string SetAvatar = $"{BaseUrl}/admin/avatar";
+            public const string GetAll = $"{BaseUrl}/admin/all";
+        }
+
     }
 }

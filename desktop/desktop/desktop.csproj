@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\" />
+    <None Remove="Assets\static.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +23,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\library\library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\static.jpg" />
   </ItemGroup>
 
 </Project>
