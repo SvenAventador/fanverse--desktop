@@ -4,6 +4,9 @@ namespace library.Core.Models.Requests
 {
     public class AdminRequest
     {
+        [JsonPropertyName("id")]
+        public int? Id { get; set; }
+
         [JsonPropertyName("nickname")]
         public string Nickname { get; set; } = null!;
 
@@ -11,9 +14,9 @@ namespace library.Core.Models.Requests
         public string Email { get; set; } = null!;
 
         [JsonPropertyName("hashedPassword")]
-        public string Password { get; set; } = null!;
+        public string? Password { get; set; }
 
         [JsonPropertyName("registrationDate")]
-        public DateTime RegistrationDate { get; set; } = DateTime.Now;
+        public DateTime? RegistrationDate { get; set; } = DateTime.Now;
     }
 }

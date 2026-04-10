@@ -15,6 +15,10 @@ namespace library.Core.Interfaces
 
         Task<AdminResponse> AddAdminAsync(AdminRequest request, CancellationToken cancellationToken = default);
 
+        Task<AdminResponse> UpdateAdminAsync(AdminRequest request, CancellationToken cancellationToken = default);
+
         Task<bool> DeleteAdminAsync(int adminId, CancellationToken cancellationToken = default);
+
+        Task<StatisticsResponse> GetStatsAsync(CancellationToken cancellationToken = default);
     }
 }

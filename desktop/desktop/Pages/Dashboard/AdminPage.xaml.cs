@@ -1,8 +1,10 @@
-﻿using library.Core.Constants;
+﻿using desktop.Windows.Action;
+using library.Core.Constants;
 using library.Core.Interfaces;
 using library.Core.Models.Responses;
 using library.Infrastructure.HttpClient;
 using library.Infrastructure.Services;
+using library.Utils;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,17 +35,62 @@ namespace desktop.Pages.Dashboard
 
         private void AddAdminButton_Click(object sender, RoutedEventArgs e)
         {
+            var editWindow = new AdminAction
+            {
+                Owner = Window.GetWindow(this)
+            };
 
+            if (editWindow.ShowDialog() == true)
+                LoadAdminsData();
         }
 
         private void EditAdmin_Click(object sender, RoutedEventArgs e)
         {
+            var button = sender as Button;
 
+            if (button?.Tag is AdminResponse admin)
+            {
+                var editWindow = new AdminAction(admin)
+                {
+                    Owner = Window.GetWindow(this)
+                };
+
+                if (editWindow.ShowDialog() == true)
+                    LoadAdminsData();
+            }
         }
 
-        private void DeleteAdmin_Click(object sender, RoutedEventArgs e)
+        private async void DeleteAdmin_Click(object sender, RoutedEventArgs e)
         {
+            var button = sender as Button;
+            if (button?.Tag is AdminResponse admin)
+            {
+                var result = MessageBoxWindow.Show($"Вы уверены, что хотите удалить администратора {admin.Nickname}?",
+                                                    "Подтверждение удаления",
+                                                    MessageBoxIcon.Question,
+                                                    MessageBoxButtons.YesNo);
 
+                if (result)
+                {
+                    try
+                    {
+                        await _adminService.DeleteAdminAsync(admin.Id);
+                        LoadAdminsData();
+
+                        MessageBoxWindow.Show($"Администратор с никнеймом {admin.Nickname} успешно удален!",
+                                               "Ошибка",
+                                               MessageBoxIcon.Success,
+                                               MessageBoxButtons.OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBoxWindow.Show($"Ошибка при удалении администратора: {ex.Message}",
+                                               "Ошибка",
+                                               MessageBoxIcon.Error,
+                                               MessageBoxButtons.OK);
+                    }
+                }
+            }
         }
 
         private async void LoadAdminsData()

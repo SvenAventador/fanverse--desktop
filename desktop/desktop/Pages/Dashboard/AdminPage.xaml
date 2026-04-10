@@ -336,10 +336,47 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" 
                                         HorizontalAlignment="Center">
-                                <Button Style="{StaticResource ActionButtonStyle}"
-                                        x:Name="EditAdmin"
+                                <Button x:Name="EditAdmin"
                                         Click="EditAdmin_Click"
+                                        Cursor="Hand"
                                         Tag="{Binding}">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="Transparent">
+                                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                                              VerticalAlignment="Center"/>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" 
+                                                                     Value="True">
+                                                                <Setter Property="Background" 
+                                                                        Value="Transparent"/>
+                                                                <Setter Property="BorderBrush" 
+                                                                        Value="Transparent"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsPressed" 
+                                                                     Value="True">
+                                                                <Setter Property="Background" 
+                                                                        Value="Transparent"/>
+                                                                <Setter Property="BorderBrush"
+                                                                        Value="Transparent"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsFocused"
+                                                                     Value="True">
+                                                                <Setter Property="Background" 
+                                                                        Value="Transparent"/>
+                                                                <Setter Property="BorderBrush" 
+                                                                        Value="Transparent"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
                                     <Button.Content>
                                         <Path Data="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
                                               Fill="#AAA"
@@ -348,10 +385,48 @@
                                     </Button.Content>
                                 </Button>
 
-                                <Button Style="{StaticResource ActionButtonStyle}"
-                                        x:Name="DeleteAdmin"
+                                <Button x:Name="DeleteAdmin"
                                         Click="DeleteAdmin_Click"
+                                        Cursor="Hand"
+                                        Margin="15, 0, 0, 0"
                                         Tag="{Binding}">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="Transparent">
+                                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                                              VerticalAlignment="Center"/>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver"
+                                                                     Value="True">
+                                                                <Setter Property="Background" 
+                                                                        Value="Transparent"/>
+                                                                <Setter Property="BorderBrush" 
+                                                                        Value="Transparent"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsPressed" 
+                                                                     Value="True">
+                                                                <Setter Property="Background" 
+                                                                        Value="Transparent"/>
+                                                                <Setter Property="BorderBrush" 
+                                                                        Value="Transparent"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsFocused"
+                                                                     Value="True">
+                                                                <Setter Property="Background" 
+                                                                        Value="Transparent"/>
+                                                                <Setter Property="BorderBrush"
+                                                                        Value="Transparent"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
                                     <Button.Content>
                                         <Path Data="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
                                               Fill="#FF5252"

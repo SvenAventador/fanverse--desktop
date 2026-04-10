@@ -3,6 +3,7 @@ using library.Core.Interfaces;
 using library.Infrastructure.HttpClient;
 using library.Infrastructure.Services;
 using library.Infrastructure.Storage;
+using library.Utils;
 using System.Net.Http;
 using System.Windows;
 using System.Windows.Input;
@@ -12,7 +13,7 @@ namespace desktop.Windows.Auth
     public partial class Login : Window
     {
         private readonly IAuthService _authService;
-        private CancellationTokenSource _cts;
+        private CancellationTokenSource? _cts;
 
         public Login()
         {
@@ -131,10 +132,10 @@ namespace desktop.Windows.Auth
                 {
                     SecureStorage.SaveCredentials(EmailBox.Text, RememberCheckBox.IsChecked == true);
 
-                    MessageBox.Show("Вход выполнен успешно!", 
-                                    "Успех",
-                                    MessageBoxButton.OK, 
-                                    MessageBoxImage.Information);
+                    MessageBoxWindow.Show("Вход выполнен успешно!",
+                                          "Успех",
+                                          MessageBoxIcon.Success,
+                                          MessageBoxButtons.OK);
 
                     new AdminDashboard().Show();    
 

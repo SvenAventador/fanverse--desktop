@@ -323,6 +323,91 @@
             </Style.Triggers>
         </Style>
 
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" 
+                    Value="#AAA"/>
+            <Setter Property="FontSize"
+                    Value="12"/>
+            <Setter Property="Cursor" 
+                    Value="Hand"/>
+            <Setter Property="VerticalAlignment" 
+                    Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" 
+                                        VerticalAlignment="Center">
+                                <Border x:Name="CheckBoxBorder" 
+                                        Width="18" 
+                                        Height="18" 
+                                        CornerRadius="4" 
+                                        Background="#1E1B2E" 
+                                        BorderBrush="#2A2438" 
+                                        BorderThickness="1"
+                                        Margin="0,0,10,0">
+                                    <Path x:Name="CheckMark" 
+                                          Data="M 0,5 L 4,9 L 9,0" 
+                                          Stroke="Transparent" 
+                                          StrokeThickness="2" 
+                                          StrokeEndLineCap="Round" 
+                                          StrokeStartLineCap="Round"
+                                          Stretch="None"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Width="12"
+                                          Height="10"/>
+                                </Border>
+
+                                <ContentPresenter x:Name="ContentPresenter" 
+                                                  Content="{TemplateBinding Content}"
+                                                  VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CheckBoxBorder" 
+                                        Property="BorderBrush" 
+                                        Value="#8A2BE2"/>
+                                <Setter Property="Foreground" 
+                                        Value="#FFFFFF"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" 
+                                     Value="True">
+                                <Setter TargetName="CheckBoxBorder" 
+                                        Property="Background" 
+                                        Value="#2A2438"/>
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" 
+                                     Value="True">
+                                <Setter TargetName="CheckBoxBorder" 
+                                        Property="BorderBrush" 
+                                        Value="#8A2BE2"/>
+                                <Setter TargetName="CheckMark" 
+                                        Property="Stroke" 
+                                        Value="#8A2BE2"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled"
+                                     Value="False">
+                                <Setter Property="Foreground"
+                                        Value="#555"/>
+                                <Setter TargetName="CheckBoxBorder" 
+                                        Property="BorderBrush" 
+                                        Value="#2A2438"/>
+                                <Setter TargetName="CheckMark" 
+                                        Property="Stroke" 
+                                        Value="#2A2438"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
 
     <Grid Background="{StaticResource BackgroundGradient}">
@@ -391,6 +476,7 @@
                            FontSize="12"
                            Margin="0,20,0,5"/>
                 <PasswordBox x:Name="PasswordBox"
+                             Password="123Sasasa!"
                              Style="{StaticResource ModernPasswordBox}"
                              FontSize="14"/>
 

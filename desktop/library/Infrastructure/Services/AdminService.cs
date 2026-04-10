@@ -18,14 +18,13 @@ namespace library.Infrastructure.Services
 
         public async Task<AdminResponse> AddAdminAsync(AdminRequest request, 
                                                        CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
+            => await _apiClient.PostAsync<AdminRequest, AdminResponse>(ApiEndpoints.Admin.AddNewAdmin, request, cancellationToken);
+
+        public async Task<AdminResponse> UpdateAdminAsync(AdminRequest request, CancellationToken cancellationToken = default)
+            => await _apiClient.PutAsync<AdminRequest, AdminResponse>(ApiEndpoints.Admin.UpdateAdmin, request, cancellationToken);
 
         public Task<bool> DeleteAdminAsync(int adminId, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
+            => _apiClient.DeleteAsync($"{ApiEndpoints.Admin.DeleteAdmin}/{adminId}", cancellationToken);
 
         public async Task<List<AdminResponse>> GetAllAdminsAsync(CancellationToken cancellationToken = default)
             => await _apiClient.GetAsync<List<AdminResponse>>(ApiEndpoints.Admin.GetAll, cancellationToken);
@@ -54,5 +53,8 @@ namespace library.Infrastructure.Services
 
             return JsonSerializer.Deserialize<AvatarUploadResponse>(content)!;
         }
+
+        public async Task<StatisticsResponse> GetStatsAsync(CancellationToken cancellationToken = default)
+            =>  await _apiClient.GetAsync<StatisticsResponse>(ApiEndpoints.Admin.GetStats, cancellationToken);
     }
 }

@@ -5,6 +5,7 @@ using library.Core.Interfaces;
 using library.Infrastructure.HttpClient;
 using library.Infrastructure.Services;
 using library.Infrastructure.Storage;
+using library.Utils;
 using Microsoft.Win32;
 using System.IO;
 using System.Net.Http;
@@ -71,17 +72,23 @@ namespace desktop
                     PageSubtitleText.Text = "Управление пользователями";
                     ContentFrame.Navigate(new UsersPage());
                     break;
+
+                case "Контент":
+                    PageTitleText.Text = "Управление контентом";
+                    PageSubtitleText.Text = "Теги, жанры и предупреждения";
+                    ContentFrame.Navigate(new ContentPage());
+                    break;
             }
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Вы уверены, что хотите выйти?",
-                                         "Выход",
-                                         MessageBoxButton.YesNo,
-                                         MessageBoxImage.Question);
+            var result = MessageBoxWindow.Show("Вы уверены, что хотите выйти?",
+                                               "Выход",
+                                               MessageBoxIcon.Question,
+                                               MessageBoxButtons.YesNo);
 
-            if (result == MessageBoxResult.Yes)
+            if (result)
             {
                 _authService?.Logout();
 
@@ -207,18 +214,18 @@ namespace desktop
                     if (!string.IsNullOrEmpty(response.Token))
                         SecureStorage.SaveToken(response.Token);
 
-                    MessageBox.Show("Аватар успешно обновлён!",
-                                    "Успех",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Information);
+                    MessageBoxWindow.Show("Аватар успешно обновлён!",
+                                          "Успех",
+                                          MessageBoxIcon.Success,
+                                          MessageBoxButtons.OK);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при загрузке аватара: {ex.Message}",
-                                 "Ошибка",
-                                 MessageBoxButton.OK,
-                                 MessageBoxImage.Error);
+                MessageBoxWindow.Show($"Ошибка при загрузке аватара: {ex.Message}",
+                                        "Ошибка",
+                                        MessageBoxIcon.Error,
+                                        MessageBoxButtons.OK);
             }
             finally
             {

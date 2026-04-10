@@ -16,7 +16,34 @@
             public const string GetMe = $"{BaseUrl}/admin/me";
             public const string SetAvatar = $"{BaseUrl}/admin/avatar";
             public const string GetAll = $"{BaseUrl}/admin/all";
+            public const string AddNewAdmin = $"{BaseUrl}/admin/create";
+            public const string UpdateAdmin = $"{BaseUrl}/admin/update";
+            public const string DeleteAdmin = $"{BaseUrl}/admin";
+            public const string GetStats = $"{BaseUrl}/admin/stats";
         }
 
+        public static class Tags
+        {
+            public const string GetAll = $"{BaseUrl}/tag";
+            public const string Create = $"{BaseUrl}/tag";
+            public const string Update = $"{BaseUrl}/tag";
+            public const string Delete = $"{BaseUrl}/tag";
+        }
+
+        public static class Genre
+        {
+            public const string GetAll = $"{BaseUrl}/genre";
+            public const string Create = $"{BaseUrl}/genre";
+            public const string Update = $"{BaseUrl}/genre";
+            public const string Delete = $"{BaseUrl}/genre";
+        }
+
+        public static class ContentWarning
+        {
+            public const string GetAll = $"{BaseUrl}/contentWarning";
+            public const string Create = $"{BaseUrl}/contentWarning";
+            public const string Update = $"{BaseUrl}/contentWarning";
+            public const string Delete = $"{BaseUrl}/contentWarning";
+        }
     }
 }
