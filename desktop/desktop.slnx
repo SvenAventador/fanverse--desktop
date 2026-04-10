@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="desktop/desktop.csproj" />
+  <Project Path="library/library.csproj" />
+</Solution>

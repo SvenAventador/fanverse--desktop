@@ -1,0 +1,61 @@
+# Visual Studio
+.vs/
+Desktop/**/.vs/
+*.vspscc
+*.vssscc
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+_ReSharper.Cache/
+*.csproj.user
+*.vcxproj.user
+
+# Build results
+desktop/**/bin/
+desktop/**/obj/
+desktop/**/Debug/
+desktop/**/Release/
+
+# User-specific files
+desktop/**/*.user
+desktop/**/*.userosscache
+desktop/**/*.suo
+desktop/**/.vs/
+desktop/**/appsettings.Development.json
+
+# Build results of Visual Studio
+desktop/**/Generated_Code/
+
+# Backup & report files
+desktop/**/TestResults/
+desktop/**/*.log
+Desktop/**/*.tmp
+Desktop/**/*.cache
+
+# Database files
+Desktop/**/*.mdf
+Desktop/**/*.ldf
+
+# Visual Studio cache files
+Desktop/**/.vs/
+Desktop/**/StyleCopReport.xml
+
+# Rider (JetBrains)
+.idea/
+Desktop/**/.idea/
+*.sln.iml
+
+# NuGet
+Desktop/**/packages/
+*.nupkg
+Desktop/**/project.lock.json
+Desktop/**/project.assets.json
+
+# Publish
+Desktop/**/publish/
+Desktop/**/PublishProfiles/
+
+# Performance tests
+Desktop/**/*.etl
+
