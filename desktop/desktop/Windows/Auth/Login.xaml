@@ -476,7 +476,6 @@
                            FontSize="12"
                            Margin="0,20,0,5"/>
                 <PasswordBox x:Name="PasswordBox"
-                             Password="123Sasasa!"
                              Style="{StaticResource ModernPasswordBox}"
                              FontSize="14"/>
 
@@ -485,6 +484,21 @@
                           Foreground="#AAA"
                           FontSize="12"
                           Margin="0,15,0,0"/>
+
+                <TextBlock x:Name="ForgotPasswordLink"
+                           Text="Забыли пароль?"
+                           FontSize="12"
+                           Foreground="#8A2BE2"
+                           Cursor="Hand"
+                           HorizontalAlignment="Right"
+                           Margin="0,15,0,0"
+                           TextDecorations="Underline">
+                    <TextBlock.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" 
+                                      Command="{Binding ForgotPasswordCommand}"
+                                      CommandParameter="{Binding ElementName=ForgotPasswordLink}"/>
+                    </TextBlock.InputBindings>
+                </TextBlock>
 
                 <Button x:Name="LoginButton"
                         Style="{StaticResource LoginButton}"

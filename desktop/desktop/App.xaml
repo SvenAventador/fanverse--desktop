@@ -10,7 +10,11 @@
             <converters:BanButtonColorConverter x:Key="BanButtonColorConverter"/>
             <converters:BanButtonTextConverter x:Key="BanButtonTextConverter"/>
             <converters:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
-            
+            <converters:StatusColorConverter x:Key="StatusColorConverter"/>
+            <converters:StatusTextConverter x:Key="StatusTextConverter"/>
+            <converters:ModerationStatusConverter x:Key="ModerationStatusConverter"/>
+            <converters:RejectedVisibilityConverter x:Key="RejectedVisibilityConverter"/>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
             </ResourceDictionary.MergedDictionaries>

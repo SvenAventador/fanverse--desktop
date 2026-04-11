@@ -1,4 +1,5 @@
-﻿using library.Core.Constants;
+﻿using desktop.Windows.Action;
+using library.Core.Constants;
 using library.Core.Interfaces;
 using library.Infrastructure.HttpClient;
 using library.Infrastructure.Services;
@@ -23,6 +24,17 @@ namespace desktop.Windows.Auth
             _authService = new AuthService(apiClient);
 
             LoadSavedCredentials();
+
+            ForgotPasswordLink.MouseLeftButtonUp += ForgotPasswordLink_MouseLeftButtonUp;
+        }
+
+        private void ForgotPasswordLink_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var forgotWindow = new ForgotPasswordWindow
+            {
+                Owner = this
+            };
+            forgotWindow.ShowDialog();
         }
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -50,6 +62,10 @@ namespace desktop.Windows.Auth
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            var source = e.OriginalSource as FrameworkElement;
+            if (source?.Name == "ForgotPasswordLink")
+                return;
+
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }

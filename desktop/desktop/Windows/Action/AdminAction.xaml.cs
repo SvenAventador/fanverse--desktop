@@ -11,9 +11,6 @@ using System.Windows.Shapes;
 
 namespace desktop.Windows.Action
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminAction.xaml
-    /// </summary>
     public partial class AdminAction : Window
     {
         private readonly IAdminService _adminService;

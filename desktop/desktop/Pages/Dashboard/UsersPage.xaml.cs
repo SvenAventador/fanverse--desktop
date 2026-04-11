@@ -2,7 +2,6 @@
 using library.Core.Interfaces;
 using library.Core.Models.Requests;
 using library.Core.Models.Responses;
-using library.Entities;
 using library.Infrastructure.HttpClient;
 using library.Infrastructure.Services;
 using library.Utils;

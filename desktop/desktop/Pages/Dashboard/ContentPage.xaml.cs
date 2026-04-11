@@ -8,7 +8,6 @@ using library.Utils;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using static library.Core.Constants.ApiEndpoints;
 
 namespace desktop.Pages.Dashboard
 {

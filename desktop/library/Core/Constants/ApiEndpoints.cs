@@ -51,5 +51,25 @@
             public const string GetAll = $"{BaseUrl}/admin/all/users";
             public const string NewBanStatus = $"{BaseUrl}/admin/newBanStatus";
         }
+
+        public static class Books
+        {
+            public const string GetAll = $"{BaseUrl}/admin/all/books";
+            public const string GetById = $"{BaseUrl}/admin/books";
+            public const string Moderate = $"{BaseUrl}/admin/moderateBook";
+            public static string GetChapters(int bookId) => $"{BaseUrl}/admin/books/{bookId}/chapters";
+        }
+
+        public static class Chapters
+        {
+            public const string GetById = $"{BaseUrl}/admin/chapters";
+            public const string Moderate = $"{BaseUrl}/admin/moderateChapter";
+        }
+
+        public static class Password
+        {
+            public const string ForgotPassword = $"{BaseUrl}/user/forgot";
+            public const string ResetPassword = $"{BaseUrl}/user/reset";
+        }
     }
 }

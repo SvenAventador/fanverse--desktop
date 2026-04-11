@@ -8,7 +8,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="FanVerse Admin Panel"
         WindowStartupLocation="CenterScreen"
-        Width="1400" Height="800"
+        Width="1400" 
+        Height="800"
         Background="#0B0A1A"
         WindowStyle="None"
         AllowsTransparency="True">
@@ -179,18 +180,12 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" 
                                      Value="True">
-                                <Setter TargetName="BgCircle" 
-                                        Property="Fill" 
-                                        Value="#FF5252"/>
                                 <Setter TargetName="CloseText" 
                                         Property="Foreground"
                                         Value="White"/>
                             </Trigger>
                             <Trigger Property="IsPressed" 
                                      Value="True">
-                                <Setter TargetName="BgCircle" 
-                                        Property="Fill"
-                                        Value="#D32F2F"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -232,9 +227,6 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" 
                                      Value="True">
-                                <Setter TargetName="BgCircle"
-                                        Property="Fill" 
-                                        Value="#2A2438"/>
                                 <Setter TargetName="MinimizeText" 
                                         Property="Foreground" 
                                         Value="White"/>

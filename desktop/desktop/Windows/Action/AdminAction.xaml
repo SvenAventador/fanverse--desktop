@@ -358,11 +358,13 @@
 
                         <PasswordBox x:Name="PasswordBox" 
                                      Grid.Column="0"
+                                     IsEnabled="False"
                                      Style="{StaticResource ModernPasswordBox}"
                                      Visibility="Visible"/>
 
                         <TextBox x:Name="PasswordVisibleBox" 
                                  Grid.Column="0"
+                                 IsEnabled="False"
                                  Style="{StaticResource ModernTextBox}"
                                  Visibility="Collapsed"/>
 
