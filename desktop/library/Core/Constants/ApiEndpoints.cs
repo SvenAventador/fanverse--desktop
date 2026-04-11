@@ -45,5 +45,11 @@
             public const string Update = $"{BaseUrl}/contentWarning";
             public const string Delete = $"{BaseUrl}/contentWarning";
         }
+
+        public static class Moderation
+        {
+            public const string GetAll = $"{BaseUrl}/admin/all/users";
+            public const string NewBanStatus = $"{BaseUrl}/admin/newBanStatus";
+        }
     }
 }

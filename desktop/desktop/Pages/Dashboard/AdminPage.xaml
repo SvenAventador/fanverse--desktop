@@ -171,16 +171,14 @@
                     Value="#2A2438"/>
             <Setter Property="BorderThickness" 
                     Value="1"/>
-            <Setter Property="FontSize" 
+            <Setter Property="FontSize"
                     Value="13"/>
             <Setter Property="Padding" 
-                    Value="10,0,15,0"/>
+                    Value="20,0,15,0"/>
+            <Setter Property="VerticalContentAlignment" 
+                    Value="Center"/>
             <Setter Property="CaretBrush" 
                     Value="#8A2BE2"/>
-            <Setter Property="VerticalContentAlignment"
-                    Value="Center"/>
-            <Setter Property="HorizontalContentAlignment"
-                    Value="Left"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
@@ -189,33 +187,41 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="20"/>
+
+                            <TextBlock Text="🔍" 
+                                       IsHitTestVisible="False" 
+                                       VerticalAlignment="Center" 
+                                       Margin="15,0,0,0" 
+                                       FontSize="14" 
+                                       Opacity="0.5"/>
+
+                            <TextBlock x:Name="Placeholder" 
+                                       Text="Поиск по никнейму или email..."
+                                       IsHitTestVisible="False"
+                                       VerticalAlignment="Center" 
+                                       Margin="40,0,0,0"
+                                       FontSize="13" 
+                                       Foreground="#666"
+                                       Opacity="0.5"/>
+
                             <ScrollViewer x:Name="PART_ContentHost" 
                                           Margin="{TemplateBinding Padding}"/>
-                            <TextBlock x:Name="HintText"
-                                       Text="Поиск по никнейму или почте..."
-                                       IsHitTestVisible="False"
-                                       Opacity="0.4"
-                                       VerticalAlignment="Center"
-                                       Margin="40,0,15,0"
-                                       FontSize="13"
-                                       Foreground="#FFFFFF"/>
                         </Grid>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="Text" 
-                                     Value="">
-                                <Setter TargetName="HintText" 
-                                        Property="Visibility"
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="Placeholder" 
+                                        Property="Visibility" 
                                         Value="Visible"/>
                             </Trigger>
                             <Trigger Property="Text" 
                                      Value="{x:Null}">
-                                <Setter TargetName="HintText" 
+                                <Setter TargetName="Placeholder" 
                                         Property="Visibility" 
                                         Value="Visible"/>
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" 
                                      Value="True">
-                                <Setter TargetName="HintText" 
+                                <Setter TargetName="Placeholder" 
                                         Property="Visibility" 
                                         Value="Collapsed"/>
                             </Trigger>
