@@ -46,7 +46,6 @@ namespace desktop.Windows.Action
                             scrollbar-width: none;
                             -ms-overflow-style: none;
                         }}
-
                         body::-webkit-scrollbar {{
                             width: 0;
                             height: 0;
@@ -120,6 +119,51 @@ namespace desktop.Windows.Action
                             background: rgba(138, 43, 226, 0.15);
                             padding: 0.2rem 0.4rem;
                             border-radius: 6px;
+                        }}
+                        
+                        /* Стили для таблиц */
+                        table {{
+                            border-collapse: collapse;
+                            margin: 1rem 0;
+                            width: 100%;
+                        }}
+                        
+                        th, td {{
+                            border: 1px solid rgba(138, 43, 226, 0.3);
+                            padding: 8px 12px;
+                            vertical-align: top;
+                            text-align: left;
+                        }}
+                        
+                        th {{
+                            background: rgba(138, 43, 226, 0.15);
+                            font-weight: bold;
+                        }}
+                        
+                        /* Стили для чек-листов */
+                        ul[data-type='taskList'] {{
+                            list-style: none;
+                            padding-left: 0;
+                        }}
+                        
+                        ul[data-type='taskList'] li {{
+                            display: flex;
+                            gap: 8px;
+                            align-items: center;
+                        }}
+                        
+                        ul[data-type='taskList'] li input {{
+                            margin: 0;
+                            width: 18px;
+                            height: 18px;
+                            cursor: pointer;
+                        }}
+                        
+                        mark {{
+                            background-color: rgba(138, 43, 226, 0.3);
+                            color: inherit;
+                            padding: 0 2px;
+                            border-radius: 4px;
                         }}
                     </style>
                     <script>

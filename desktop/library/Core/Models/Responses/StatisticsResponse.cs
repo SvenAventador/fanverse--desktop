@@ -96,7 +96,7 @@ namespace library.Core.Models.Responses
         public int Rejected { get; set; }
 
         [JsonPropertyName("pendingPercentage")]
-        public string? PendingPercentage { get; set; }
+        public double? PendingPercentage { get; set; }
 
         [JsonPropertyName("byRating")]
         public List<RatingStats>? ByRating { get; set; }
@@ -135,7 +135,7 @@ namespace library.Core.Models.Responses
         public int Rejected { get; set; }
 
         [JsonPropertyName("averagePerBook")]
-        public string? AveragePerBook { get; set; }
+        public double? AveragePerBook { get; set; }
     }
 
     public class EngagementStats
@@ -147,10 +147,10 @@ namespace library.Core.Models.Responses
         public int TotalLikes { get; set; }
 
         [JsonPropertyName("averageLikesPerBook")]
-        public string? AverageLikesPerBook { get; set; }
+        public double? AverageLikesPerBook { get; set; }
 
         [JsonPropertyName("averageCommentsPerBook")]
-        public string? AverageCommentsPerBook { get; set; }
+        public double? AverageCommentsPerBook { get; set; }
     }
 
     public class TopAuthor
@@ -228,6 +228,6 @@ namespace library.Core.Models.Responses
         public int ModerationPending { get; set; }
 
         [JsonPropertyName("moderationSuccessRate")]
-        public string? ModerationSuccessRate { get; set; }
+        public double? ModerationSuccessRate { get; set; }
     }
 }
